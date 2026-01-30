@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>UPSC | A.R Digital Group</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at top left, #0a1930, #020617);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #f9fafb;
+    }
+
+    .intro {
+      text-align: center;
+      animation: fadeIn 1.4s ease forwards;
+    }
+
+    /* Logo Container */
+    .logo-circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #38bdf8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 22px;
+      box-shadow: 0 0 35px rgba(56, 189, 248, 0.35);
+      animation: pulse 2.5s infinite;
+      background: #ffffff;
+    }
+
+    .logo-circle img {
+      width: 90px;
+      height: auto;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #38bdf8, #22c55e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #cbd5f5;
+      margin-bottom: 25px;
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      letter-spacing: 0.5px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 25px rgba(56,189,248,0.35); }
+      50% { box-shadow: 0 0 45px rgba(56,189,248,0.55); }
+      100% { box-shadow: 0 0 25px rgba(56,189,248,0.35); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="intro">
+    <div class="logo-circle">
+      <img src="C:\Users\Adithya Shetty\OneDrive\Pictures\logo.png" alt="A.R Digital Group Logo">
+    </div>
+
+    <h1>UPSC Aspirant Hub</h1>
+    <h2>A Project by A.R Digital Group</h2>
+    <p class="tagline">Empowering Aspirants • Building Futures 🚀</p>
+  </div>
+
+  <!-- Auto Redirect -->
+  <script>
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 5000);
+  </script>
+
+</body>
+</html>
