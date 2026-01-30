@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>UPSC Aspirant Hub | A.R Digital Group</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/sidebar.css">
+
+</head>
+
+<body>
+
+<div class="app-container">
+
+  <!-- ===== Sidebar ===== -->
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="assets/logo.png">
+      <span>UPSC Hub</span>
+    </div>
+  </aside>
+
+  <!-- ===== Main Content ===== -->
+  <main class="main-content" id="content">
+
+<section class="section visible">
+
+<h1>Welcome to UPSC Aspirant Hub</h1>
+<p class="welcome-sub">
+Your all-in-one preparation dashboard for UPSC success.
+</p>
+
+<div class="welcome-grid">
+
+<div class="welcome-card" data-page="current">
+<h3>📰 Current Affairs</h3>
+<p>Stay updated with daily national news curated for UPSC.</p>
+</div>
+
+<div class="welcome-card" data-page="global">
+<h3>🌍 Global Affairs</h3>
+<p>International events explained in exam-focused format.</p>
+</div>
+
+<div class="welcome-card" data-page="newspaper">
+<h3>🗞 Online Newspaper</h3>
+<p>Quick access to trusted editorial sources.</p>
+</div>
+
+<div class="welcome-card" data-page="study">
+<h3>📚 Study Material</h3>
+<p>Structured resources for Prelims & Mains.</p>
+</div>
+
+<div class="welcome-card" data-page="quiz">
+<h3>🎯 Daily Quiz</h3>
+<p>Test your preparation with daily MCQs.</p>
+</div>
+
+<div class="welcome-card" data-page="notes">
+<h3>📝 My Notes</h3>
+<p>Save and organize your revision notes.</p>
+</div>
+
+</div>
+</section>
+
+</main>
+</div>
+
+<!-- ===== App Scripts ===== -->
+
+<script src="js/navigation.js"></script>
+<script src="js/currentAffairs.js"></script>
+<script src="js/globalAffairs.js"></script>
+<script src="js/newspaper.js"></script>
+<script src="js/studyMaterial.js"></script>
+<script src="js/notes.js"></script>
+<script src="js/quiz.js"></script>
+
+<!-- PDF Export -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- Card Navigation -->
+<script>
+document.querySelectorAll('.welcome-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const page = card.getAttribute('data-page');
+
+    document.dispatchEvent(new CustomEvent('navigate', {
+      detail: { page }
+    }));
+  });
+});
+</script>
+
+<!-- Firebase Cloud Save -->
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, addDoc, collection } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* Firebase Config */
+const firebaseConfig = {
+  apiKey: "AIzaSyAN47l9AcIKTBNGj_al6yvQ2hhhPy6Co8Q",
+  authDomain: "upsc-hub-e7851.firebaseapp.com",
+  projectId: "upsc-hub-e7851",
+  storageBucket: "upsc-hub-e7851.firebasestorage.app",
+  messagingSenderId: "618825978448",
+  appId: "1:618825978448:web:1eaa14c8a40f721f347755"
+};
+
+/* Initialize */
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+/* Global Save Function */
+window.saveCloudNote = async function(text) {
+  await addDoc(collection(db, "notes"), {
+    content: text,
+    createdAt: new Date()
+  });
+
+  alert("Saved to Firebase ☁️");
+};
+
+</script>
+
+</body>
+</html>
